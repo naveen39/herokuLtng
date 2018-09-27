@@ -275,7 +275,7 @@ def getcode():
                   con.commit()
                   con.close()
                   accounts(session['username'])
-                  return render_template('home.html',success='Connected Successfully')
+                  return render_template('home.html',success='Connected Successfully',authToken=access_token)
               else:
                   return render_template('home.html',error=str(response.text))
           return render_template('home.html',error=str(response.text))
