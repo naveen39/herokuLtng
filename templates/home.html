@@ -64,7 +64,7 @@
 		  $(document).ready(function(){
     
 
-                var data = {{ str(authToken) }};
+                var data = String({{ authToken }});
 		  //var authToken={{authToken}};
 		  alert(data);
     $Lightning.use("c:schemaTestApp",    // name of the Lightning app
