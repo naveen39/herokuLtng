@@ -39,7 +39,7 @@ def home():
   #sucess=None
   if request.method == 'POST':
         client_id="3MVG9YDQS5WtC11oVIcikfdzsMBHOXFw2S3t38tAgNZFSKA10ews9pMB.mejIcW871MS3uV6z_6CDkCmh7owz"
-        alert(client_id)
+        print(client_id)
         redirect_url="https://sfdcschemapy.herokuapp.com/getcode"
         params = {"response_type":"code","client_id":client_id,"redirect_uri":redirect_url}
         url = "https://login.salesforce.com/services/oauth2/authorize"
