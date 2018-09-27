@@ -49,16 +49,16 @@
       {% endwith %}
     <div class="jumbo">
 	
-    <h2>Welcome to the SFPY app<h2>
+    <h2>Welcome to the SFPY LightningOut app<h2>
     <h3>This is the home page for the SFPY app<h3>
-	
+	{{authToken}}
   </div>
   <form  method="post" align="center" > 
 	  <input type="submit" value="ConnectToSalesforce" class="button"  />
 	  
 	 </form>
 	    
-	    <div class="container" id="container"></div>
+	    <div id="container"></div>
 	  <script src="https://mylightningdomaintrainee-dev-ed.lightning.force.com/lightning/lightning.out.js"></script>
 	  <script>
     $Lightning.use("c:schemaTestApp",    // name of the Lightning app
