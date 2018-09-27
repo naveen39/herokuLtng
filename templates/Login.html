@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+  
+{% block content %}
+ <html>
+  <head>
+    <title> Title </title>
+  </head>
+   {% if error %}
+      <p style="color:red"><strong>Error:</strong> <b>{{ error }}</b>
+      {% endif %}
+  <body> 
+  {% with messages = get_flashed_messages() %}
+         {% if messages %}
+            <ul>
+               {% for message in messages %}
+               <li<{{ message }}</li>
+               {% endfor %}
+            </ul>
+         {% endif %}
+      {% endwith %}
+    <div class="jumbo">
+	
+    <form  method="post" align="center">
+     Name: <input type="text" name="lname" /></br></br>
+	  Password:<input type="password" name="lpwd" /></br></br>
+	  
+      <input type="submit" value="login"/> <br />
+	   <a href="forget_pwd">Forget Password</a>
+    </form>
+	</div>
+  </body>
+</html>
+{% endblock %}

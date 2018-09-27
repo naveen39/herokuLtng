@@ -1,0 +1,84 @@
+{%if 'username' not in session%}
+     {% extends "layout.html" %}
+{%else%}
+     {% extends "loginlayout.html" %}
+{% endif %}
+  
+{% block content %}
+  <h2>About</h2>
+  <p>This is an About page for the Intro to Integration with SFDC </p>
+  <ul>
+  	
+	 <li>To get Records from Salesforce via ConnectApp and Api <u><a style="color:blue" href="https://sfpy9.herokuapp.com/">https://sfpy9.herokuapp.com/</a> </u></li>
+ 
+  <ol>
+	<li>create ConnectApp</li>
+	<li>Pass cosumer key, cosumer secret to get the <b>ACCESS TOKEN</b></li>
+	<li>pass query and <b>ACCESS TOKEN</b> to get required DATA </li>
+	</ol>
+	<br/><br/><br/>
+	
+  <li>To get <b>Code</b> from Salesforce to integrate <u><a style="color:blue" href="https://login.salesforce.com/services/oauth2/authorize?
+">https://login.salesforce.com/services/oauth2/authorize?
+</a></u></li>
+<br></br> <b>Parameters to pass :</b>  
+
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+<table class = "table" align="center" border="1" cellspacing="0" cellpadding="12"><tr><td>1 </td>
+<td>response_type </td>
+<td>code </td>
+</tr>
+<tr><td>2 </td>
+<td>client_id </td>
+<td>Consumer key </td>
+</tr>
+<tr><td>3 </td>
+<td> redirect_uri</td>
+<td> Callback url in connected app</td>
+</tr><table>
+
+ 
+ <br></br>
+ 
+ 	
+  <li>To get <b>Access Token</b> from Salesforce to integrate <u><a style="color:blue" href=" https://login.salesforce.com/services/oauth2/token? ">
+   https://login.salesforce.com/services/oauth2/token? 
+</a></u></li>
+<br></br> <b>Parameters to pass :</b>  
+<table class = "table" align="center" border="1" cellspacing="0" cellpadding="12"><tr><td>1 </td>
+<td>code </td>
+<td><b>Code</b> which get by step 1 url  </td>
+</tr>
+<tr><td>2 </td>
+<td>grant_type </td>
+<td>authorization_code  </td>
+</tr>
+<tr><td>3 </td>
+<td>client_id </td>
+<td>Consumer key </td>
+</tr>
+<tr><td>4 </td>
+<td>client_secret </td>
+<td>Consumer ID  </td>
+</tr>
+<tr><td>5 </td>
+<td> redirect_uri</td>
+<td> Callback url in connected app</td>
+</tr><table>
+
+</body>
+</html>
+
+ 
+ <br></br>
+ 
+{% endblock %}  

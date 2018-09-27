@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+  
+{% block content %}
+ <html>
+  <head>
+    <title> Title </title>
+  </head>
+   {% if error %}
+      <p style="color:red"><strong>Error:</strong> <b>{{ error }}</b>
+      {% endif %}
+  <body> 
+    <div class="jumbo">
+	 
+    <form  method="post" align="center" > 
+     Name: <input type="text" name="name" /></br></br>
+	  Password:<input type="password" name="pwd" /></br></br>
+	  Re-pwd <input type="password" name="repwd" /></br></br>
+      <input type="submit" value="SignUp" />
+	  
+    </form>
+	
+	</div>
+  </body>
+</html>
+{% endblock %}

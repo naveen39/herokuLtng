@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SFPY</title>    
+    <strong><link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"></strong>
+  </head>
+  <body>
+   <header>
+  <div class="container"> 
+    <h1 class="logo">SFPY App</h1>
+    <strong><nav>
+      <ul class="menu" >
+        <li><a href="{{ url_for('home') }}"><font style="color:#ff22cc">Home</font></a></li>
+         <li><a href="{{ url_for('about') }}"><font style="color:#ff22cc">About</font></a></li>
+		 <li><a href="{{ url_for('Signup') }}"><font style="color:#ff22cc">Signup</font></a></li>
+		  <li><a href="{{ url_for('Login') }}"><font style="color:#ff22cc">Login</font></a></li>
+		  
+      </ul>
+    </nav></strong>
+  </div>
+</header>
+     
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

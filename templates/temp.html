@@ -1,0 +1,104 @@
+{%if 'username' not in session%}
+     {% extends "layout.html" %}
+{%else%}
+     {% extends "loginlayout.html" %}
+{% endif %}
+  
+{% block content %}
+ <html>
+  <head>
+    <title> Title </title>
+	
+	<style>
+.button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 2px 1px;
+    cursor: pointer;
+}
+</style>
+  </head>
+  
+  <script>
+	function handleChanges(chdEle){
+		console.log("--------chdEle------"+chdEle);
+		console.log("--------chdEle-Id-----"+chdEle.id);
+		var inpIdFull = chdEle.id;
+		var rowIndex = inpIdFull.split()[0];
+		console.log("-------rowIndex----"+rowIndex);
+		
+		var nameEleId = rowIndex+"Name";
+		var nameEleId = rowIndex+"LastName";
+		console.log("fdgdfgdfgdf"+document.getElementById(chdEle.id).value);
+		
+	}
+	function updateSFDC(row){
+	//document.getElementById(row.)
+	var rowno=row.id;
+	//alert('allow'+rowno);
+	
+	//\
+	alert(rowno +' Row updation In progress');
+	//handleChanges(rowno)
+	
+	}
+  </script>
+   {% if error %}
+      <p style="color:red"><strong>Error:</strong> <b>{{ error }}</b>
+      {% endif %}
+  <body> 
+  {% with messages = get_flashed_messages() %}
+         {% if messages %}
+            <ul>
+               {% for message in messages %}
+               <li><{{ message }}</li>
+               {% endfor %}
+            </ul>
+         {% endif %}
+      {% endwith %}
+    <div class="jumbo">
+	<form  method="post" align="center">
+	</br></br>
+	query: &nbsp;&nbsp; <input type="text" name="user" placeholder="select Id,firstname,lastname from contact"/>&nbsp;&nbsp;
+	<input type="submit" value="getRecords"/> 
+	
+	 <p style="color:blue"><strong></strong> <b>{{ records }}</b>
+	 <div>
+   <table class = "table" align="center">
+     
+     <h1> <caption>
+	 {% for r in recs %}{% for key,value in r.items() if loop.first%}
+	  {% if key=='attributes' %}{{value.type}}
+	  {%endif%}{% endfor %}{% endfor %}
+	  Table </caption></h1>
+	 
+	  <tr>
+	  <th>ROW</th>
+	  {% for  r in recs %}{% for key,value in r.items() if loop.first%}
+	  {% if key!='attributes' %}
+	  
+	  <th>{{key}}</th>{%endif%}{% endfor %}{% endfor %}</tr>
+	  {% for r in recs %}
+	  {% set rowno = loop.index%}
+	  <tr>
+	  
+	  <td>{{loop.index}}</td>
+		{% for key, value in r.items() %}
+		{% if key!='attributes' %}<td><input type="text" id="{{rowno}}{{key}}"  onchange="handleChanges(this);" value="{{value}}" name="aname"/></td>{%endif%}{% endfor %}
+	  <td><input type="button" id="{{rowno}}"  value="update" name="aname" class="button"  onclick="updateSFDC(this);" /></td>
+	  </tr>
+	{% endfor %}
+		
+	</table>
+	</div>
+
+	</div>
+  </body>
+</html>
+{% endblock %}

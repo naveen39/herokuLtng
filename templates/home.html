@@ -1,0 +1,65 @@
+{%if 'username' not in session%}
+     {% extends "layout.html" %}
+{%else%}
+     {% extends "loginlayout.html" %}
+{% endif %}
+
+
+
+{% block content %}
+
+ <html>
+  <head>
+    <title> Title </title>
+  </head>
+  
+<style>
+.button {
+    background-color: #4CA050;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style>
+
+   {% if error %}
+      <p style="color:red"><strong>Error:</strong> <b>{{ error }}</b>
+      {% endif %}
+	  {% if logout %}
+      <p style="color:Blue"><strong></strong> <b>{{ logout }}</b>
+      {% endif %}
+	  {% if success %}
+      <p style="color:Blue"><strong></strong> <b>{{ success }}</b>
+      {% endif %}
+  <body> 
+  {% with messages = get_flashed_messages() %}
+         {% if messages %}
+            <ul>
+               {% for message in messages %}
+               <li><{{ message }}</li>
+               {% endfor %}
+            </ul>
+         {% endif %}
+      {% endwith %}
+    <div class="jumbo">
+	
+    <h2>Welcome to the SFPY app<h2>
+    <h3>This is the home page for the SFPY app<h3>
+	
+  </div>
+  <form  method="post" align="center" > 
+	  <input type="submit" value="ConnectToSalesforce" class="button"  />
+	  
+	 </form>
+	
+  </body>
+</html>
+  
+</body>
+{% endblock %}
