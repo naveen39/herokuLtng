@@ -60,9 +60,10 @@
 	    
 	    <div id="container"></div>
 	  <script src="https://mylightningdomaintrainee-dev-ed.lightning.force.com/lightning/lightning.out.js"></script>
-	  <script>
+	  <script type="text/javascript">
+                var data = {{ authToken }};
 		  //var authToken={{authToken}};
-		  //alert(authToken);
+		  alert(data);
     $Lightning.use("c:schemaTestApp",    // name of the Lightning app
         function() {                  // Callback once framework and app loaded
             $Lightning.createComponent(
@@ -72,7 +73,7 @@
                 
             );
         },
-        'https://mylightningdomaintrainee-dev-ed.my.salesforce.com','Bearer '+{{authToken}} // Community endpoint
+        'https://mylightningdomaintrainee-dev-ed.my.salesforce.com','Bearer '+data // Community endpoint
     );
 </script>
 
