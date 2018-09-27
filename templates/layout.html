@@ -33,12 +33,13 @@
                 }
             );
         },
-        'https://mylightningdomaintrainee-dev-ed.my.salesforce.com'  // Community endpoint
+        'https://mylightningdomaintrainee-dev-ed.my.salesforce.com',{{authToken}}  // Community endpoint
     );
 </script>
 
      
     <div class="container">
+	   -- {{authToken}} --
       {% block content %}
       {% endblock %}
     </div>
