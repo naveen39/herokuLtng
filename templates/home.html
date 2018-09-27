@@ -61,6 +61,8 @@
 	    <div id="container"></div>
 	  <script src="https://mylightningdomaintrainee-dev-ed.lightning.force.com/lightning/lightning.out.js"></script>
 	  <script>
+		  var authToken={{authToken}};
+		  alert(authToken)k
     $Lightning.use("c:schemaTestApp",    // name of the Lightning app
         function() {                  // Callback once framework and app loaded
             $Lightning.createComponent(
@@ -72,7 +74,7 @@
                 }
             );
         },
-        'https://mylightningdomaintrainee-dev-ed.my.salesforce.com',{{authToken}}  // Community endpoint
+        'https://mylightningdomaintrainee-dev-ed.my.salesforce.com',authToken // Community endpoint
     );
 </script>
 
