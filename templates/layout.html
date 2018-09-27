@@ -5,7 +5,7 @@
     <strong><link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"></strong>
   </head>
   <body>
-   <header>
+   <header>	   
   <div class="container"> 
     <h1 class="logo">SFPY App</h1>
     <strong><nav>
@@ -19,6 +19,24 @@
     </nav></strong>
   </div>
 </header>
+	  <div class="container" id="container"></div>
+	  <script src="https://mylightningdomaintrainee-dev-ed.lightning.force.com/lightning/lightning.out.js"></script>
+	  <script>
+    $Lightning.use("c:locatorApp",    // name of the Lightning app
+        function() {                  // Callback once framework and app loaded
+            $Lightning.createComponent(
+                "c:storeLocatorMain", // top-level component of your app
+                { },                  // attributes to set on the component when created
+                "container",   // the DOM location to insert the component
+                function(cmp) {
+                    // callback when component is created and active on the page
+                }
+            );
+        },
+        'https://mylightningdomaintrainee-dev-ed.my.salesforce.com'  // Community endpoint
+    );
+</script>
+
      
     <div class="container">
       {% block content %}
