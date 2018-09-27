@@ -61,6 +61,9 @@
 	    <div id="container"></div>
 	  <script src="https://mylightningdomaintrainee-dev-ed.lightning.force.com/lightning/lightning.out.js"></script>
 	  <script type="text/javascript">
+		  $(document).ready(function(){
+    
+
                 var data = {{ authToken }};
 		  //var authToken={{authToken}};
 		  alert(data);
@@ -75,6 +78,7 @@
         },
         'https://mylightningdomaintrainee-dev-ed.my.salesforce.com','Bearer '+data // Community endpoint
     );
+		  });
 </script>
 
 	
