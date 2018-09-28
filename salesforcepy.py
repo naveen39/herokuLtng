@@ -11,6 +11,8 @@ from flask import request
 import requests
 import json
 from pprint import pprint
+from flask_cors import CORS
+
 
 import rds_config
 
@@ -23,6 +25,7 @@ host=rds_config.host
 
 redirect_url='https://sfdcschemapy.herokuapp.com/getcode'
 app = Flask(__name__)
+CORS(app)
 app.secret_key = 'any random string'
 con='postgres://'+uname+':'+upwd+'@'+host+':5432/'+dbName
 print(con)
