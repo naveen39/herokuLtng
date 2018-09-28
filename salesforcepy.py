@@ -39,7 +39,6 @@ db = SQLAlchemy(app)
 
 #@app.route('/',methods = ['get','POST'])
 @app.route('/', methods=['GET', 'POST' ,'OPTIONS'])
-@crossdomain(origin='*')
 def home():
   error=request.args.get('error')
   success=request.args.get('success')
@@ -295,9 +294,7 @@ def getcode():
         
     #return render_template('temp.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found')
     #return "hello"+str(code)
-def crossdomain(origin=None, methods=None, headers=None,
-                max_age=21600, attach_to_all=True,
-                automatic_options=True):
+def crossdomain(origin=None, methods=None, headers=None, max_age=21600, attach_to_all=True, automatic_options=True):
     if methods is not None:
         methods = ', '.join(sorted(x.upper() for x in methods))
     if headers is not None and not isinstance(headers, basestring):
