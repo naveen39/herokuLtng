@@ -227,7 +227,7 @@ def loginhome(name):
 
 #@app.route('/getcode', defaults={'code': None})
 @app.route('/getcode',methods=['GET', 'OPTIONS'])
-@crossdomain(origin='*')
+#@crossdomain(origin='*')
 def getcode():
     dbName=rds_config.db_name
     uname=rds_config.db_username
@@ -517,7 +517,14 @@ def generate_token(instance_url,refresh_token,query):
     #return render_template('temp.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found')
   else:
     return render_template('home.html',error="Access token exipred you need to reconect salesforce")
+
   
+@app.after_request
+def after_request(response):
+  response.headers.add('Access-Control-Allow-Origin', '*')
+  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+  return response  
 
 
 if __name__ == '__main__':
