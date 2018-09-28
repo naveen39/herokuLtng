@@ -34,7 +34,9 @@ app.config['1'] = 'postgres://'+uname+':'+upwd+'@'+host+':5432/'+dbName
 db = SQLAlchemy(app)
 
 
-@app.route('/',methods = ['get','POST'])
+#@app.route('/',methods = ['get','POST'])
+@app.route('/', methods=['GET', 'POST' ,'OPTIONS'])
+@crossdomain(origin='*')
 def home():
   error=request.args.get('error')
   success=request.args.get('success')
@@ -223,7 +225,7 @@ def loginhome(name):
 
 #@app.route('/getcode', defaults={'code': None})
 @app.route('/getcode')
-@crossdomain(origin='*')
+#@crossdomain(origin='*')
 def getcode():
     dbName=rds_config.db_name
     uname=rds_config.db_username
