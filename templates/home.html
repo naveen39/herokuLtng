@@ -64,9 +64,9 @@
 		  $(document).ready(function(){
     
 
-                var data = String({{authToken}});
+                var data = ({{authToken}});
 		  //var authToken={{authToken}};
-		  alert(data);
+		  alert(typeof data);
     $Lightning.use("c:schemaTestApp",    // name of the Lightning app
         function() {                  // Callback once framework and app loaded
             $Lightning.createComponent(
