@@ -297,7 +297,7 @@ def getcode():
 def crossdomain(origin=None, methods=None, headers=None, max_age=21600, attach_to_all=True, automatic_options=True):
     if methods is not None:
         methods = ', '.join(sorted(x.upper() for x in methods))
-    if headers is not None and not isinstance(headers, basestring):
+    if headers is not None and not isinstance(headers, list):
         headers = ', '.join(x.upper() for x in headers)
     if not isinstance(origin, basestring):
         origin = ', '.join(origin)
