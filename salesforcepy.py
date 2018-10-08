@@ -227,7 +227,7 @@ def loginhome(name):
 
 #@app.route('/getcode', defaults={'code': None})
 @app.route('/getcode',methods=['GET', 'OPTIONS'])
-#@crossdomain(origin='*')
+@crossdomain(origin='*')
 def getcode():
     dbName=rds_config.db_name
     uname=rds_config.db_username
